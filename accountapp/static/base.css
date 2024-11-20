@@ -1,0 +1,17 @@
+.mygallery_logo {
+    font-family: 'Lobster', cursive;
+}
+
+.mygallery_footer_button {
+    font-size: .6rem;
+}
+
+.mygallery_footer {
+    text-align:center;
+    margin-top: 2rem;
+}
+
+.mygallery_header {
+    text-align: center;
+    margin: 2rem 0;
+}
