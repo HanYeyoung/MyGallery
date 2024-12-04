@@ -1,11 +1,32 @@
-<div class="mygallery_header">
-    <div>
-        <h1 class="mygallery_logo">My Gallery</h1>
+
+    <div class="mygallery_header">
+        <div>
+            <h1 class="pragmatic_logo">Pragmatic</h1>
+        </div>
+        <div class="pragmatic_header_navbar">
+            <a href="{% url 'articleapp:list' %}" class="mygallery_header_nav">
+                <span>Articles</span>
+            </a>
+            <a href="{% url 'projectapp:list' %}" class="mygallery_header_nav">
+                <span>Projects</span>
+            </a>
+            <a href="{% url 'subscribeapp:list' %}" class="mygallery_header_nav">
+                <span>Subscription</span>
+            </a>
+            {% if not user.is_authenticated %}
+            <a href="{% url 'accountapp:login' %}?next={{ request.path }}" class="mygallery_header_nav">
+                <span>login</span>
+            </a>
+            <a href="{% url 'accountapp:create' %}" class="mygallery_header_nav">
+                <span>SignUp</span>
+            </a>
+            {% else %}
+            <a href="{% url 'accountapp:detail' pk=user.pk %}" class="mygallery_header_nav">
+                <span>MyPage</span>
+            </a>
+            <a href="{% url 'accountapp:logout' %}?next={{ request.path }}" class="mygallery_header_nav">
+                <span>logout</span>
+            </a>
+            {% endif %}
+        </div>
     </div>
-    <div>
-        <span>nav1</span>
-        <span>nav2</span>
-        <span>nav3</span>
-        <span>nav4</span>
-    </div>
-</div>
