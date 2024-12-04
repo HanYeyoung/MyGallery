@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<div style="display: block; text-align: center">
+    <img src="{{ project.image.url }}" alt="">
+    <h5 class="mt-2" style="font-family: 'NanumSquareB';">
+        {{ project.title | truncatechars:8 }}
+    </h5>
+</div>

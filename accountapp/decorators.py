@@ -10,4 +10,3 @@ def account_ownership_required(func):
         return func(request, *args, **kwargs)
     return decorated
 
-
