@@ -1,13 +1,14 @@
 from django.contrib.auth.models import User
 from django.http import HttpResponseForbidden
 
-from profileapp.models import Profile
+from articleapp.models import Article
+from projectapp.models import Project
 
 
-def profile_ownership_required(func):
+def article_ownership_required(func):
     def decorated(request, *args, **kwargs):
-        profile = Profile.objects.get(pk=kwargs['pk'])
-        if not profile.user == request.user:
+        project = Project.objects.get(pk=kwargs['pk'])
+        if not project.writer == request.user:
             return HttpResponseForbidden()
         return func(request, *args, **kwargs)
     return decorated

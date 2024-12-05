@@ -2,30 +2,29 @@
 {% load static %}
 
 {% block content %}
-
-<style>
-
+    <style>
     .container {
         padding: 0;
-        margin: 0, auto;
+        margin: 0 auto;
+        position: relative; /* Ensure positioning context for MagicGrid */
     }
 
     .container div {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      
-      border-radius: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1rem;
     }
 
     .container img {
-      width: 7rem;
-      height: 7rem;
-      object-fit: cover;
-      border-radius: 1rem;
+        width: 7rem;
+        height: 7rem;
+        object-fit: cover;
+        border-radius: 1rem;
     }
 
-</style>
+    </style>
+
     {% if project_list %}
     <div class="container">
         {% for project in project_list %}
@@ -34,7 +33,9 @@
         </a>
         {% endfor %}
     </div>
+
     <script src="{% static 'js/magicgrid.js' %}"></script>
+
     {% else %}
     <div class="text-center">
         <h1>No Projects YET!</h1>
@@ -42,9 +43,8 @@
     {% endif %}
 
     {% include 'snippets/pagination.html' with page_obj=page_obj %}
-
     <div style="text-align: center">
-        <a href="{% url 'projectapp:create' %}" class="btn btn-dark rounded-pill mt-3 mb-3 px-3">
+        <a href="{% url 'projectapp:create' %}" class="btn btn-dark rounded-pill mt-3 mb-3 px-2">
             Create Project
         </a>
     </div>

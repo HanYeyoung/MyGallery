@@ -1,4 +1,4 @@
-"""pragmatic URL Configuration
+"""mygallery URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
@@ -25,7 +25,7 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('accounts/', include('accountapp.urls')),
-    path('profile/', include('profileapp.urls')),
+    path('profiles/', include('profileapp.urls')),
     path('articles/', include('articleapp.urls')),
     path('comments/', include('commentapp.urls')),
     path('projects/', include('projectapp.urls')),

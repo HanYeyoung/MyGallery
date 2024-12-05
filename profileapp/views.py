@@ -1,15 +1,15 @@
-from django.shortcuts import render
 
-# Create your views here.
-from django.urls import reverse_lazy, reverse
+from django.shortcuts import render
+from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, UpdateView
 
-from profileapp.decorators import profile_ownership_required
 from profileapp.forms import ProfileCreationForm
 from profileapp.models import Profile
+from profileapp.decorators import profile_ownership_required
 
 
+# Create your views here.
 class ProfileCreateView(CreateView):
     model = Profile
     context_object_name = 'target_profile'
@@ -24,7 +24,6 @@ class ProfileCreateView(CreateView):
 
     def get_success_url(self):
         return reverse('accountapp:detail', kwargs={'pk': self.object.user.pk})
-
 
 @method_decorator(profile_ownership_required, 'get')
 @method_decorator(profile_ownership_required, 'post')

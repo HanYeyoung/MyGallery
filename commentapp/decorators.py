@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.http import HttpResponseForbidden
 
 from commentapp.models import Comment
@@ -10,4 +11,3 @@ def comment_ownership_required(func):
             return HttpResponseForbidden()
         return func(request, *args, **kwargs)
     return decorated
-
